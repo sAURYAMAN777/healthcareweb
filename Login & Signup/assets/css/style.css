@@ -1,0 +1,146 @@
+/*  #ff4a56 */
+
+.transition, form button, form .question label, form .question input[type="text"] {
+  -moz-transition: all 0.25s cubic-bezier(0.53, 0.01, 0.35, 1.5);
+  -o-transition: all 0.25s cubic-bezier(0.53, 0.01, 0.35, 1.5);
+  -webkit-transition: all 0.25s cubic-bezier(0.53, 0.01, 0.35, 1.5);
+  transition: all 0.25s cubic-bezier(0.53, 0.01, 0.35, 1.5);
+}
+
+* {
+  font-family: Helvetica, sans-serif;
+  font-weight: light;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  background-position: center;
+  background-size: cover;
+  height: 100vh;
+  background-image:linear-gradient(rgba(7, 63, 7, 0.4),rgba(7, 63, 7, 0.4)), url("./img/hush-naidoo-yo01Z-9HQAw-unsplash-compressed.jpg") ;
+}
+
+form {
+  position: relative;
+  display: inline-block;
+  width: 45%;
+  box-sizing: border-box;
+  padding: 30px 25px;
+  background-color: white;
+  margin: 10% 0 0 0;
+  left: 50%;
+  -moz-transform: translate(-50%, 0);
+  -ms-transform: translate(-50%, 0);
+  -webkit-transform: translate(-50%, 0);
+  transform: translate(-50%, 0);
+  
+}
+form h1 {
+  color: rgba(0, 0, 0, 0.72);
+  font-weight: 100;
+  letter-spacing: 0.01em;
+  margin-left: 15px;
+  margin-bottom: 35px;
+  text-transform: uppercase;
+}
+form button ,.button2{
+  margin-top: 35px;
+  background-color: #2cc545;
+  border: 2px solid #2cc545;
+  line-height: 0;
+  font-size: 17px;
+  display: inline-block;
+  box-sizing: border-box;
+  padding: 20px 15px;
+  color: white;
+  font-weight: 100;
+  letter-spacing: 0.01em;
+  position: relative;
+  z-index: 1;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+form button:hover, form button:focus ,.button2{
+  color: rgba(0, 0, 0, 0.72);
+  background-color: white;
+}
+form .question {
+  position: relative;
+  padding: 10px 0;
+}
+form .question:first-of-type {
+  padding-top: 0;
+}
+form .question:last-of-type {
+  padding-bottom: 0;
+}
+form .question label {
+  transform-origin: left center;
+  color: rgba(0, 0, 0, 0.72);
+  font-weight: 100;
+  letter-spacing: 0.01em;
+  font-size: 17px;
+  box-sizing: border-box;
+  padding: 10px 15px;
+  display: block;
+  position: absolute;
+  margin-top: -40px;
+  z-index: 2;
+  pointer-events: none;
+}
+form .question input[type="text"],form .question input[type="password"] ,form .question input[type="email"]{
+  appearance: none;
+  background-color: none;
+  border: 1px solid rgba(0, 0, 0, 0.72);
+  line-height: 0;
+  font-size: 17px;
+  width: 100%;
+  display: block;
+  box-sizing: border-box;
+  padding: 10px 15px;
+  border-radius: 60px;
+  color: rgba(0, 0, 0, 0.72);
+  font-weight: 100;
+  letter-spacing: 0.01em;
+  position: relative;
+  z-index: 1;
+}
+form .question input[type="text"]:focus,form .question input[type="password"]:focus ,form .question input[type="email"]:focus{
+  outline: none;
+  background: #2cc545;
+  color: white;
+  margin-top: 30px;
+  border-color: #2cc545;
+}
+form .question input[type="text"]:valid,form .question input[type="password"]:valid,form .question input[type="email"]:valid {
+  margin-top: 30px;
+}
+form .question input[type="text"]:focus ~ label ,form .question input[type="password"]:focus ~ label,form .question input[type="email"]:focus ~ label{
+  -moz-transform: translate(0, -35px);
+  -ms-transform: translate(0, -35px);
+  -webkit-transform: translate(0, -35px);
+  transform: translate(0, -35px);
+}
+form .question input[type="text"]:valid ~ label,form .question input[type="password"]:valid ~ label ,form .question input[type="email"]:valid ~ label{
+  text-transform: uppercase;
+  font-style: italic;
+  -moz-transform: translate(5px, -35px) scale(0.6);
+  -ms-transform: translate(5px, -35px) scale(0.6);
+  -webkit-transform: translate(5px, -35px) scale(0.6);
+  transform: translate(5px, -35px) scale(0.6);
+}
+
+/*
+  Mobile Responsive
+*/
+
+@media only screen and (max-width:480px){
+  .container{
+    margin: 10% auto;
+  }
+  form {
+    width: 90%;
+    padding: 30px 25px;
+    margin: 10% 0;
+  }
+}
