@@ -4,39 +4,100 @@
       name="viewport"
       content="width=device-width,initial-scale=1,shrink-to-fit=no"
     />
-    <link rel="stylesheet" type="text/css" href="./vendors/css/bootstrap.min.css">
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="./vendors/css/bootstrap.min.css"
+    />
     <link rel="stylesheet" type="text/css" href="./assets/css/style.css" />
     <title>Login</title>
     <style>
-        .button2{
-            background-color: white;
-            color: rgba(0, 0, 0, 0.72);
-            text-decoration: none;
-        }
-        .button2:hover{
-            background-color: #2cc545;
-            color: white;
-            text-decoration: none;
-        }
+      .button2 {
+        background-color: white;
+        color: rgba(0, 0, 0, 0.72);
+        text-decoration: none;
+      }
+      .button2:hover {
+        background-color: #2cc545;
+        color: white;
+        text-decoration: none;
+      }
     </style>
   </head>
 
   <body>
     <div class="container">
-      <form action="#">
+      <form>
         <h1>Login</h1>
         <div class="question">
-          <input type="email" required />
+          <input type="email" id="emailk" required />
           <label>Email</label>
         </div>
         <div class="question">
-          <input type="password" required />
+          <input type="password" id="password" required />
           <label>Password</label>
         </div>
-        <button type="submit">Submit</button>
-        <a class="button2" style="float: right;" href="./sign-up.html">Sign-up</a>
+        <button id="getl" type="button">Login</button>
+        <a class="button2" style="float: right" href="./sign-up.html"
+          >Sign-up</a
+        >
       </form>
     </div>
-    
+
+    <script>
+      var c = 0;
+      var lk, lon;
+
+      document.getElementById("getl").addEventListener("click", getLocation);
+
+      function getLocation() {
+        var cordiref = firebase.database().ref("credential/");
+        cordiref
+          .orderByChild("email")
+          .equalTo(document.getElementById("emailk").value)
+          .on("child_added", function (data) {
+            var newVok = data.val();
+            var ty = newVok.email;
+            var uh = newVok.password;
+            if (
+              ty == document.getElementById("emailk").value &&
+              uh == document.getElementById("password").value
+            ) {
+              console.log("SUccesfully LLogged In");
+              sessionStorage.setItem("emkey", ty);
+              window.open("../index.html", "_self");
+            } else {
+              window.open("login.html", "_self");
+            }
+          });
+      }
+    </script>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.13.2/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/7.13.2/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.13.2/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.13.2/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.13.2/firebase-database.js"></script>
+
+    <script>
+      // Your web app's Firebase configuration
+      // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+      var firebaseConfig = {
+        apiKey: "AIzaSyCw3Grd6OFbc2q54aHPInGuGJ2-N_1HrMU",
+        authDomain: "crime-report-93624.firebaseapp.com",
+        databaseURL: "https://crime-report-93624.firebaseio.com",
+        projectId: "crime-report-93624",
+        storageBucket: "crime-report-93624.appspot.com",
+        messagingSenderId: "433066064193",
+        appId: "1:433066064193:web:eeb1027a286bbac39149c0",
+        measurementId: "G-TLJ4JZ6V0E"
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+      firebase.analytics();
+    </script>
   </body>
 </html>
