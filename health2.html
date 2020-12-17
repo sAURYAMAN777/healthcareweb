@@ -27,6 +27,12 @@
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
 
+  <script>
+    var emkey = sessionStorage.getItem("emkey");
+    if (emkey == null) {
+      window.open("./Login & Signup/login.html", "_self");
+    }
+  </script>
 </head>
 
 <body>
@@ -45,6 +51,7 @@
       <div class="cta">
         <a href="#about" class="scrollto">Get Started</a>
       </div>
+      <a href="./Login & Signup/login.html" style="float: right;font-size: 20px;padding-top: 5px;margin-left: 20px;"><ion-icon name="power-outline"></ion-icon></a>
     </div>
   </section>
   <!-- ======= Header ======= -->
@@ -707,7 +714,7 @@ document.getElementById("dated6").innerHTML+=v;
   <script src="assets/vendor/owl.carousel/owl.carousel.min.js"></script>
   <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
   <script src="assets/vendor/aos/aos.js"></script>
-
+  <script src="https://unpkg.com/ionicons@5.2.3/dist/ionicons.js"></script>
   <!-- Template Main JS File -->
     <script src="assets/js/main.js"></script>
 

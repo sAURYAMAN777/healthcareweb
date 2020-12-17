@@ -1,6 +1,4 @@
-Thanks for downloading this template!
+login for testing :::
 
-Template Name: Flexor
-Template URL: https://bootstrapmade.com/flexor-free-multipurpose-bootstrap-template/
-Author: BootstrapMade.com
-License: https://bootstrapmade.com/license/
+email : testing@project.com
+password : 12345
