@@ -1,0 +1,43 @@
+<html>
+  <head>
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,shrink-to-fit=no"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="vendor/bootstrap/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" type="text/css" href="css/style1.css" />
+    <title>Sign-Up</title>
+  </head>
+
+  <body>
+    <div class="container">
+      <form action="/signUp" method="post">
+        <h1>Sign-Up</h1>
+        <div class="question">
+          <input type="text" name="firstName" id="firstName" required />
+          <label>First Name</label>
+        </div>
+        <div class="question">
+          <input type="text" name="lastName" id="lastName" required />
+          <label>Last Name</label>
+        </div>
+        <div class="question">
+          <input type="email" name="email" id="email" required />
+          <label>Email</label>
+        </div>
+        <div class="question">
+          <input type="password" name="password" id="password" required />
+          <label>Password</label>
+        </div>
+        <button type="submit" id="getl">Submit</button>
+        <a class="button2" style="float: right" href="/">Login</a>
+      </form>
+    </div>
+
+    
+  </body>
+</html>
