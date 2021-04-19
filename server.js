@@ -1,36 +1,13 @@
 const express = require("express");
 const bodyParser = require("body-parser");
-const mongoose = require("mongoose");
+
+const Email = "test@project.com";
+const Password = "12345";
 
 const app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static("public"));
 let isAuthenticated = false;
-mongoose.connect("mongodb://localhost:27017/test", {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
-
-const userSchema = new mongoose.Schema({
-  fname: {
-    type: String,
-    required: true,
-  },
-  lname: {
-    type: String,
-    required: true,
-  },
-  email: {
-    type: String,
-    required: true,
-  },
-  password: {
-    type: String,
-    required: true,
-  },
-});
-
-const userModel = mongoose.model("User", userSchema);
 
 //       ****** AUTHENTICATION SEGMENT *******
 
@@ -39,14 +16,12 @@ app.get("/", function (req, res) {
 });
 
 app.post("/login", function (req, res) {
-  userModel.findOne({ email: req.body.email }, function (err, data) {
-    if (!err && data.password === req.body.password) {
-      isAuthenticated = true;
-      res.redirect("/feed");
-    } else {
-      res.redirect("/");
-    }
-  });
+  if (Email === req.body.email && Password === req.body.password) {
+    isAuthenticated = true;
+    res.redirect("/feed");
+  } else {
+    res.redirect("/");
+  }
 });
 
 app.get("/signUp", function (req, res) {
@@ -54,13 +29,8 @@ app.get("/signUp", function (req, res) {
 });
 
 app.post("/signUp", async function (req, res) {
-  const newUser = new userModel({
-    fname: req.body.firstName,
-    lname: req.body.lastName,
-    email: req.body.email,
-    password: req.body.password,
-  });
-  await newUser.save();
+  Email = req.body.email;
+  Password = req.body.password;
   isAuthenticated = true;
   res.sendFile(__dirname + "/index.html");
 });
@@ -115,8 +85,6 @@ app.get("/contact", function (req, res) {
     res.redirect("/");
   }
 });
-
-
 
 app.listen(5000, function () {
   console.log("The server has started at port 5000");
